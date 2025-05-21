@@ -2,39 +2,27 @@
 
 namespace EmployeesApp.Web.Services
 {
-    public class EmployeeService : IEmployeeService
+    public class OtherEmployeeService : IEmployeeService
     {
         readonly List<Employee> employees =
         [
             new Employee()
             {
-                Id = 562,
-                Name = "Anders Hejlsberg",
-                Email = "Anders.Hejlsberg@outlook.com",
+                Id = 1,
+                Name = "Kalle Karlsson",
+                Email = "KalleK@outlook.com",
             },
             new Employee()
             {
-                Id = 62,
-                Name = "Kathleen Dollard",
-                Email = "k.d@outlook.com",
+                Id = 5,
+                Name = "Amanda Lantz",
+                Email = "AmandaL@outlook.com",
             },
             new Employee()
             {
                 Id = 15662,
-                Name = "Mads Torgersen",
-                Email = "Admin.Torgersen@outlook.com",
-            },
-            new Employee()
-            {
-                Id = 52,
-                Name = "Scott Hanselman",
-                Email = "s.h@outlook.com",
-            },
-            new Employee()
-            {
-                Id = 563,
-                Name = "Jon Skeet",
-                Email = "j.s@outlook.com",
+                Name = "Kim Widencrantz",
+                Email = "KimW@outlook.com",
             },
         ];
 
@@ -53,3 +41,4 @@ namespace EmployeesApp.Web.Services
             employee.Email.StartsWith("ADMIN", StringComparison.CurrentCultureIgnoreCase);
     }
 }
+

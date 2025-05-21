@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeesApp.Web.Controllers
 {
-    public class EmployeesController : Controller
+    public class EmployeesController(IEmployeeService service) : Controller
     {
-        static readonly EmployeeService service = new();
+        readonly IEmployeeService service = service;
+
 
         [HttpGet("")]
+        [ServiceFilter(typeof(MyLogFilter))]
         public IActionResult Index()
         {
             var model = service.GetAll();
@@ -30,12 +32,14 @@ namespace EmployeesApp.Web.Controllers
         }
 
         [HttpGet("create")]
+        [ServiceFilter(typeof(MyLogFilter))]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost("create")]
+        [ServiceFilter(typeof(MyLogFilter))]
         public IActionResult Create(CreateVM viewModel)
         {
             if (!ModelState.IsValid)
@@ -52,6 +56,7 @@ namespace EmployeesApp.Web.Controllers
         }
 
         [HttpGet("details/{id}")]
+        [ServiceFilter(typeof(MyLogFilter))]
         public IActionResult Details(int id)
         {
             var model = service.GetById(id);
